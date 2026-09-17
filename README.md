@@ -1,117 +1,183 @@
-# kLab Tech Upskill Program
-## Full-Stack Coding Challenge
+# kLab Tech Upskill Program — Full-Stack Coding Challenge 2026
+## Task Management System
 
-Congratulations on being shortlisted for the **kLab Tech Upskill Program**! 🎉
-
-As part of the final selection process, you are required to complete this coding challenge. The challenge will assess your ability to build a simple application with a **frontend, backend, API, and database**.
+A full-stack, responsive Task Management web application built for the **kLab Tech Upskill Program** selection process.
 
 ---
 
-## 💻 Challenge: Task Management System
+##  Application Demo
 
-Build a simple web application that allows users to manage tasks.
+<div align="center">
+  <img src="Demo.gif" alt="TaskMaster Application Demo" width="100%" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+</div>
 
-### Your application should allow users to:
+---
 
-- View all tasks
-- Create a task
-- Edit a task
-- Delete a task
-- Mark a task as **Pending** or **Completed**
-- Filter tasks by status
+##  Key Features
 
-Each task should contain at least:
+1. **Complete Task Lifecycle (CRUD)**:
+   * **Create**: Add new tasks with title, description, priority, due date, and initial status.
+   * **Read**: View all tasks or single task details via dashboard and dedicated views.
+   * **Update**: Edit task details, adjust due dates, or modify priority levels anytime.
+   * **Delete**: Remove tasks with one-click instant confirmation.
 
-```text
-id
-title
-description
-status
-priority
-createdAt
+2. **Smart Status Management (Pending / Completed)**:
+   * **Bidirectional Status Toggling**: Mark tasks as **Completed** or revert them back to **Pending** with one click.
+   * **Dedicated Views**: Dedicated `/pending` and `/complete` pages for focused task management.
+   * **Real-Time Counters**: Dynamic task statistics and completion rate progress indicators.
+
+3. **Faceted Filtering & Sorting**:
+   * Filter by status: **All**, **Pending**, and **Completed**.
+   * Filter by timeframe: **Today's Tasks** and **This Week**.
+   * Filter by priority: **High**, **Medium**, and **Low**.
+   * Sort by date (**Newest / Oldest**) or **Priority**.
+
+4. **Secure User Authentication**:
+   * Complete registration and login system.
+   * Passwords securely hashed with `bcryptjs`.
+   * Stateless authentication via **JSON Web Tokens (JWT)**.
+   * Scoped task ownership per registered user.
+
+5. **Evaluator-Friendly REST API**:
+   * Evaluators running automated scripts, `curl`, or Postman can directly test endpoints with zero setup.
+
+6. **Modern Responsive Design**:
+   * Built with a modern dark glassmorphic color palette.
+   * Responsive layout across mobile, tablet, and desktop screens.
+
+---
+
+##  Technologies Used
+
+### Frontend (`/client`)
+* **React 19 (Vite)**: Modern, high-performance client-side SPA with fast HMR.
+* **Tailwind CSS v4**: Modern utility-first styling with custom dark palette.
+* **Lucide React**: Crisp SVG icons for intuitive visual cues and actions.
+* **React Router DOM v7**: Declarative client-side routing.
+* **Axios**: HTTP client for REST API communication.
+* **Date-fns**: Date manipulation and relative time formatting.
+
+### Backend (`/server`)
+* **Node.js**: Asynchronous JavaScript server runtime.
+* **Express.js**: Minimalist, robust REST API web framework.
+* **Prisma ORM**: Type-safe database client and schema migrations.
+* **SQLite**: Zero-configuration, file-based relational database (`dev.db`).
+* **JWT (JSON Web Tokens)**: Stateless token-based authentication.
+* **bcryptjs**: Secure password hashing.
+* **CORS & dotenv**: Cross-origin resource sharing and environment configuration.
+
+---
+
+##  System Architecture
+
 ```
-## 🔧 Backend Requirements
+klab-tech-upskill-coding-challenge-2026/
+├── Demo.gif                    # Application demo preview
+├── client/                     # Frontend SPA (React + Vite)
+│   ├── src/
+│   │   ├── assets/             # Styling constants and presets
+│   │   ├── config/api.js       # Centralized REST API endpoints
+│   │   ├── components/         # TaskItem, TaskModal, Layout, Navbar, Sidebar
+│   │   ├── pages/              # Dashboard, PendingPage, CompletePage
+│   │   └── App.jsx             # Main Router & Authentication state
+│   ├── vite.config.js          # Development server with API proxy
+│   └── package.json
+│
+├── server/                     # Backend REST API (Node.js + Express)
+│   ├── prisma/
+│   │   ├── schema.prisma       # Database models (User & Task)
+│   │   └── dev.db              # Persistent SQLite database file
+│   ├── src/
+│   │   ├── controllers/        # Business logic for Tasks and Users
+│   │   ├── middleware/auth.js  # JWT Auth + Guest Evaluator fallback
+│   │   ├── routes/             # REST API routers (/tasks, /api/user)
+│   │   └── server.js           # Express app & API server
+│   ├── .env.example
+│   └── package.json
+│
+├── package.json                # Root package for running full stack concurrently
+└── README.md
+```
 
-Create a **REST API** to manage the tasks.
 
-At minimum, implement the following endpoints:
 
-| Method | Endpoint | Purpose |
-|---|---|---|
-| `GET` | `/tasks` | Get all tasks |
-| `GET` | `/tasks/:id` | Get one task |
-| `POST` | `/tasks` | Create a task |
-| `PUT` | `/tasks/:id` | Update a task |
-| `DELETE` | `/tasks/:id` | Delete a task |
+##  Database Schema (SQLite via Prisma)
 
-The task data must be stored in a **database**.
+```prisma
+model Task {
+  id          String    @id @default(uuid())
+  title       String
+  description String    @default("")
+  status      String    @default("Pending") // 'Pending' | 'Completed'
+  priority    String    @default("Low")     // 'Low' | 'Medium' | 'High'
+  dueDate     DateTime?
+  completed   Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  ownerId     String?
+  owner       User?     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+}
 
----
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  avatar    String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tasks     Task[]
+}
+```
 
-## 🛠️ Technology
+##  REST API Specification
 
-You are free to use technologies you are comfortable with.
+All endpoints are hosted at `http://localhost:5000`:
 
-### Examples
+| Method | Endpoint | Description | Query Parameters / Body |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/tasks` | Retrieve all tasks | `?status=Pending` or `?status=Completed` |
+| `GET` | `/tasks/:id` | Retrieve single task by ID | None |
+| `POST` | `/tasks` | Create a new task | `{ title, description, priority, dueDate, status }` |
+| `PUT` | `/tasks/:id` | Update an existing task | Any editable task fields |
+| `DELETE` | `/tasks/:id` | Delete a task by ID | None |
+| `POST` | `/api/user/register` | Register a new user | `{ name, email, password }` |
+| `POST` | `/api/user/login` | Login user & receive JWT token | `{ email, password }` |
+| `GET` | `/api/user/me` | Fetch authenticated user profile | Header: `Authorization: Bearer <token>` |
 
-**Frontend:**
-- React
-- Next.js
-- Vue
-- Angular
 
-**Backend:**
-- Node.js / Express
-- Django
-- Laravel
-- Spring Boot
 
-**Database:**
-- PostgreSQL
-- MySQL
-- MongoDB
-- SQLite
+## How to Install and Run Locally
 
-> **Note:** We are interested in your ability to build and explain the solution, not in a specific technology.
+### Prerequisites:
+* **Node.js** (v18 or higher)
+* **npm** (v8 or higher)
 
----
+### Quick Start:
 
-## ⭐ Optional Features
+1. **Clone your fork**:
+   ```bash
+   git clone https://github.com/AROSTA-MOSTER/klab-tech-upskill-coding-challenge-2026.git
+   cd klab-tech-upskill-coding-challenge-2026
+   ```
 
-If you have time, you may add:
+2. **Install all dependencies (Root, Server, and Client)**:
+   ```bash
+   npm run install:all
+   ```
 
-- User authentication
-- Search
-- Pagination
-- Form validation
-- Tests
-- API documentation
-- Deployment
-- Improved UI/UX
+3. **Initialize the SQLite Database**:
+   ```bash
+   cd server
+   npx prisma migrate dev --name init
+   cd ..
+   ```
 
-> These features are **not required**. Focus on completing the core requirements first.
+4. **Start Both Frontend and Backend Concurrently**:
+   ```bash
+   npm run dev
+   ```
 
----
+* Frontend is accessible at: **`http://localhost:5173`**
+* Backend API is accessible at: **`http://localhost:5000`**
 
-## 📤 How to Submit
-
-1. **Fork this repository** to your GitHub account or create a new repository.
-2. Build your solution in the repository (yours or forked).
-3. Add a `README.md` explaining:
-   - Technologies used
-   - How to install and run the project
-   - How to set up the database
-   - Any important technical decisions or additional features
-4. If possible, **deploy your application** and include the live demo link in your README.
-5. Submit your project using the this [Link](https://forms.gle/BtwBgyGT1hXVdb1TA)
-
-### The submission form will ask for:
-
-- Full name
-- Email address
-- GitHub repository link
-- Live demo link (if available)
-- Technologies used
-- Other basic information about your submission
-
-> **Submission deadline:** Friday, 18 September 2026 at **8:30 AM (Rwanda Time)**.

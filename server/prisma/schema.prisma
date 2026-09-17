@@ -1,0 +1,33 @@
+// Prisma schema for SQLite Task Management System
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  tasks     Task[]
+  createdAt DateTime @default(now())
+}
+
+model Task {
+  id          String    @id @default(uuid())
+  title       String
+  description String    @default("")
+  status      String    @default("Pending") // 'Pending' or 'Completed'
+  priority    String    @default("Low")     // 'Low', 'Medium', 'High'
+  dueDate     DateTime?
+  completed   Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  ownerId     String?
+  owner       User?     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+}
