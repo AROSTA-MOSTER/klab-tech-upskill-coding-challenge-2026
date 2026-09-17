@@ -13,7 +13,13 @@ A full-stack, responsive Task Management web application built for the **kLab Te
 
 ---
 
-##  Key Features
+## Live Demo & Submission Details
+
+* **Live Web Application**: [https://klab-tech-upskill-coding-challenge-2026.onrender.com/](https://klab-tech-upskill-coding-challenge-2026.onrender.com/)
+* **Live REST API Backend**: [https://klab-task-backend.onrender.com](https://klab-task-backend.onrender.com)
+* **GitHub Repository**: [https://github.com/AROSTA-MOSTER/klab-tech-upskill-coding-challenge-2026](https://github.com/AROSTA-MOSTER/klab-tech-upskill-coding-challenge-2026)
+
+---
 
 1. **Complete Task Lifecycle (CRUD)**:
    * **Create**: Add new tasks with title, description, priority, due date, and initial status.
