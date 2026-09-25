@@ -26,16 +26,16 @@ const Navbar = ({ user = {}, onLogout }) => {
   };
   return (
     <header
-      className="sticky top-0 z-50 sm:my-4 sm:mt-0 sm:rounded-b-3xl rounded-b-3xl bg-one/50 
-      backdrop-blur-xs shadow-sm border-b border-one"
+      className="sticky top-0 z-50 sm:my-4 sm:mt-0 sm:rounded-b-3xl rounded-b-3xl bg-[#081226]/80 
+      backdrop-blur-md shadow-lg border-b border-one/40"
     >
-      <div className="flex item-center justify-between py-3 px-4 md:px-6 max-w-full mx-auto">
+      <div className="flex items-center justify-between py-2.5 sm:py-3 px-3 sm:px-4 md:px-6 max-w-full mx-auto gap-2">
         <div
-          className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group"
+          className="flex items-center gap-2 sm:gap-3 cursor-pointer group min-w-0"
           onClick={() => navigate("/")}
         >
           <div
-            className="relative w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl bg-two/80 border border-one/70 p-1 shadow-lg group-hover:shadow-one/50 
+            className="relative w-9 h-9 sm:w-11 sm:h-11 shrink-0 flex items-center justify-center rounded-xl bg-two/80 border border-one/70 p-1 shadow-lg group-hover:shadow-one/50 
                 group-hover:scale-105 transition-all duration-300 overflow-hidden"
           >
             <img
@@ -46,8 +46,8 @@ const Navbar = ({ user = {}, onLogout }) => {
           </div>
 
           <span
-            className="text-lg sm:text-2xl md:text-3xl font-extrabold bg-linear-to-r from-maintxt via-blue-100 to-blue-200
-             bg-clip-text text-transparent tracking-wide font-montserrat uppercase"
+            className="text-base sm:text-xl md:text-2xl lg:text-3xl font-extrabold bg-linear-to-r from-maintxt via-blue-100 to-blue-200
+             bg-clip-text text-transparent tracking-wide font-montserrat uppercase truncate max-w-[170px] xs:max-w-[240px] sm:max-w-none"
           >
             EVERHOME DREAMS LTD
           </span>

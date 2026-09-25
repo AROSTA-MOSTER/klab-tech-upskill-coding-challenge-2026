@@ -101,25 +101,26 @@ const Sidebar = ({ user, tasks }) => {
       {/* Mobile menu */}
       {/* Mobile quick nav (replaces menu button) */}
       {!mobileOpen && (
-        <div className={SIDEBAR_CLASSES.mobileButton + " flex"}>
+        <nav aria-label="Mobile Navigation" className={SIDEBAR_CLASSES.mobileButton}>
           {menuItems.map(({ text, path, icon }) => (
             <NavLink
               key={text}
               to={path}
               className={({ isActive }) =>
-                `flex items-start gap-1 px-2 py-2 rounded-2xl text-sm sm:text-base font-medium transition-all
-                  ${isActive ? "bg-two/70 border border-l-3 sm:border-l-3 border-one text-maintxt font-medium shadow-sm"
-                     : "hover:bg-two/50 text-maintxt/50 hover:text-maintxt"}`
+                `flex flex-col items-center justify-center gap-1 px-3 py-1.5 rounded-2xl text-xs transition-all duration-200 min-w-[70px] ${
+                  isActive
+                    ? "bg-one/30 text-blue-200 border border-one/60 shadow-sm"
+                    : "text-maintxt/60 hover:text-maintxt active:scale-95"
+                }`
               }
             >
-              <span className="w-3 h-3 mr-2">{icon}</span>
-              <span className="inline sm:hidden items-start">
+              <span className="w-5 h-5 flex items-center justify-center">{icon}</span>
+              <span className="text-[11px] font-medium tracking-tight">
                 {text.split(" ")[0]}
               </span>
-              <span className="sm:inline hidden items-start">{text}</span>
             </NavLink>
           ))}
-        </div>
+        </nav>
       )}
 
       {/* Mobile drawer

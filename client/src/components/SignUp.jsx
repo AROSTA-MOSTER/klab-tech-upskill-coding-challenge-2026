@@ -58,7 +58,7 @@ const Signup = ({ onSubmit, onSwitchMode }) => {
   ];
 
   return (
-    <div className="max-w-md w-full bg-one/50 shadow-lg border border-one rounded-3xl p-8">
+    <div className="max-w-md w-full bg-[#081226]/85 backdrop-blur-xl shadow-2xl border border-one/60 rounded-3xl p-6 sm:p-8 mx-auto">
       <ToastContainer theme="dark" position="top-center" autoClose={3000} hideProgressBar />
 
       <div className="mb-6 text-center">

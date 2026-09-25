@@ -101,10 +101,9 @@ const TaskModal = ({ isOpen, onClose, taskToEdit, onSave, onLogout }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 backdrop-blur-sm bg-basedark/70 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 backdrop-blur-md bg-black/70 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
       <div
-        className="bg-one/70 border border-one rounded-3xl max-w-md w-full shadow-lg relative p-6
-       animate-fadeIn"
+        className="bg-[#081226]/95 backdrop-blur-2xl border border-one/60 rounded-3xl max-w-md w-full shadow-2xl relative p-5 sm:p-6 my-auto max-h-[92vh] overflow-y-auto animate-fadeIn"
       >
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-maintxt flex items-center gap-2">

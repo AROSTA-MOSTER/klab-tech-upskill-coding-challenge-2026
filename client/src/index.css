@@ -7,10 +7,43 @@
   --color-maintxt: #ffffff;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   font-family: "Fredoka", system-ui, sans-serif;
   background-color: #081226;
   color: #ffffff;
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  z-index: -1;
+  background-image: 
+    linear-gradient(to bottom, rgba(8, 18, 38, 0.20) 0%, rgba(6, 12, 26, 0.35) 100%),
+    url("/background.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  filter: brightness(1.25) contrast(1.08);
+  pointer-events: none;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .font-montserrat {

@@ -114,12 +114,12 @@ export const menuItems = [
 
 export const SIDEBAR_CLASSES = {
   desktop:
-    "hidden md:flex flex-col fixed h-full w-20 lg:w-64 bg-one/50 rounded-3xl backdrop-blur-sm border-r border-one shadow-md z-20 transition-all duration-300",
+    "hidden md:flex flex-col fixed h-full w-20 lg:w-64 bg-[#081226]/80 rounded-3xl backdrop-blur-md border border-one/40 shadow-xl z-20 transition-all duration-300",
   mobileButton:
-    "absolute md:hidden inset-x-2 sm:inset-x-4 mt-3 sm:mt-0 flex items-center justify-between bg-one/50 text-maintxt p-2 rounded-3xl shadow-lg border border-one transition",
-  mobileDrawerBackdrop: "fixed inset-0 bg-black/40 backdrop-blur-sm",
+    "fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#081226]/90 backdrop-blur-xl border-t border-one/40 px-3 py-2 pb-[max(0.6rem,env(safe-area-inset-bottom))] flex items-center justify-around shadow-[0_-5px_25px_rgba(0,0,0,0.6)] transition-all",
+  mobileDrawerBackdrop: "fixed inset-0 bg-black/60 backdrop-blur-sm",
   mobileDrawer:
-    "absolute top-0 left-0 w-66 h-full bg-one/50 backdrop-blur-md border-r border-one shadow-lg z-50 p-4 flex flex-col space-y-6",
+    "absolute top-0 left-0 w-66 h-full bg-[#081226]/90 backdrop-blur-xl border-r border-one/50 shadow-2xl z-50 p-4 flex flex-col space-y-6",
 };
 
 export const LINK_CLASSES = {

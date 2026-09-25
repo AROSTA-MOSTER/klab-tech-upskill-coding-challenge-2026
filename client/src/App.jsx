@@ -105,7 +105,7 @@ const App = () => {
           currentUser ? (
             <Navigate to="/" replace />
           ) : (
-            <div className="fixed inset-0 bg-basedark bg-opacity-50 flex items-center justify-center">
+            <div className="fixed inset-0 bg-black/15 flex items-center justify-center p-4 overflow-y-auto">
               <Login
                 onSubmit={handleAuthSubmit}
                 onSwitchMode={() => navigate("/signup")}
@@ -118,10 +118,7 @@ const App = () => {
       <Route
         path="/signup"
         element={
-          <div
-            className="fixed inset-0 bg-basedark bg-opacity-50 flex items-center 
-            justify-center"
-          >
+          <div className="fixed inset-0 bg-black/15 flex items-center justify-center p-4 overflow-y-auto">
             <SignUp
               onSubmit={handleAuthSubmit}
               onSwitchMode={() => navigate("/login")}

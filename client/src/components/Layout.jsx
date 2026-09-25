@@ -96,7 +96,7 @@ const Layout = ({ onLogout, user }) => {
   // LOADING
   if (loading)
     return (
-      <div className="min-h-screen bg-basedark flex items-center justify-center">
+      <div className="min-h-screen bg-transparent flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-one" />
       </div>
     );
@@ -104,7 +104,7 @@ const Layout = ({ onLogout, user }) => {
   // ERROR
   if (error)
     return (
-      <div className="min-h-screen bg-basedark p-6 flex items-center justify-center">
+      <div className="min-h-screen bg-transparent p-6 flex items-center justify-center">
         <div className="bg-two text-red-600 p-4 rounded-xl border border-one/50 max-w-md">
           <p className="font-medium mb-2">Error loading tasks</p>
           <p className="text-sm">{error}</p>
@@ -120,12 +120,12 @@ const Layout = ({ onLogout, user }) => {
     );
 
   return (
-    <div className="min-h-screen bg-basedark sm:p-4 sm:pt-0">
+    <div className="min-h-screen bg-transparent sm:p-4 sm:pt-0">
       <Navbar user={user} onLogout={onLogout} />
       <Sidebar user={user} tasks={tasks} />
 
-      <div className="ml-0 xl:ml-64 lg:ml-64 md:ml-16 pt-18 md:pl-4 md:pt-0 transition-all duration-300">
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-3 md:gap-4">
+      <div className="ml-0 xl:ml-64 lg:ml-64 md:ml-16 pt-3 md:pl-4 md:pt-0 pb-24 md:pb-6 transition-all duration-300">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-3 md:gap-4 px-2 sm:px-0">
           <div className="xl:col-span-2 space-y-3 sm:space-y-4">
             <Outlet context={{ tasks, refreshTasks: fetchTasks }} />
           </div>

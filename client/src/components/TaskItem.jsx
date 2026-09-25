@@ -109,12 +109,12 @@ const TaskItem = ({
   return (
     <>
       <div className={`${TI_CLASSES.wrapper} ${borderColor}`}>
-        <div className="flex justify-between gap-2 sm:gap-4 items-stretch">
+        <div className="flex flex-col sm:flex-row justify-between gap-3 sm:gap-4 items-start sm:items-stretch">
           {/* LEFT */}
-          <div className="flex flex-col justify-between max-w-[60%]">
+          <div className="flex flex-col justify-between w-full sm:max-w-[62%] min-w-0">
             {/* TOP */}
             <div className="flex flex-col gap-1">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 <h3
                   className={`${TI_CLASSES.titleBase} ${
                     isCompleted
@@ -140,7 +140,7 @@ const TaskItem = ({
             </div>
 
             {/* DATES */}
-            <div className="flex items-center gap-3 sm:gap-4 text-xs text-maintxt/50 mt-2">
+            <div className="flex items-center gap-3 sm:gap-4 text-xs text-maintxt/50 mt-2 flex-wrap">
               <div className="flex items-center gap-1">
                 <Calendar className="w-3.5 h-3.5" />
                 {task.dueDate ? format(new Date(task.dueDate), "MMM dd") : "-"}
@@ -156,10 +156,10 @@ const TaskItem = ({
           </div>
 
           {/* ACTION BTN */}
-          <div className="flex flex-col gap-2 items-end shrink-0">
+          <div className="flex flex-wrap sm:flex-col gap-2 items-center sm:items-end w-full sm:w-auto shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-one/20">
             <button
               onClick={handleComplete}
-              className={`${TI_CLASSES.actionBtn} ${
+              className={`${TI_CLASSES.actionBtn} flex-1 sm:flex-initial text-center ${
                 isCompleted
                   ? "bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 cursor-pointer"
                   : "bg-green-500/20 text-green-300 hover:bg-green-500/30 cursor-pointer"
@@ -170,12 +170,15 @@ const TaskItem = ({
 
             <button
               onClick={() => setShowEditModel(true)}
-              className={TI_CLASSES.secondaryBtn}
+              className={`${TI_CLASSES.secondaryBtn} flex-1 sm:flex-initial text-center`}
             >
               Edit Task
             </button>
 
-            <button onClick={handleDelete} className={TI_CLASSES.dangerBtn}>
+            <button
+              onClick={handleDelete}
+              className={`${TI_CLASSES.dangerBtn} flex-initial sm:flex-initial text-center`}
+            >
               Delete
             </button>
           </div>
