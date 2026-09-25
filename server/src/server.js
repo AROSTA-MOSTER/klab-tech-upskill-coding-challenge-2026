@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
     status: "healthy",
     message: "kLab Tech Upskill Task Management REST API",
     version: "1.0.0",
-    database: "SQLite (Prisma ORM)",
+    database: "PostgreSQL (Prisma ORM)",
     endpoints: {
       getAllTasks: "GET /tasks",
       getSingleTask: "GET /tasks/:id",

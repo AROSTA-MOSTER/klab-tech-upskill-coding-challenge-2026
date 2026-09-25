@@ -1,27 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --color-basedark: #352f44;
-  --color-one: #b9b4c7;
-  --color-two: #5c5470;
-  --color-maintxt: #faf0e6;
+  --color-basedark: #081226;
+  --color-one: #2563eb;
+  --color-two: #122b5e;
+  --color-maintxt: #ffffff;
 }
 
 body {
   font-family: "Fredoka", system-ui, sans-serif;
+  background-color: #081226;
+  color: #ffffff;
 }
 
 .font-montserrat {
   font-family: "Montserrat", system-ui, sans-serif;
 }
 
-/* 🔥 Chrome autofill FULL override */
+/* Chrome autofill FULL override */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill {
-  -webkit-text-fill-color: #faf0e6 !important; /* maintxt */
-  caret-color: #faf0e6 !important;
+  -webkit-text-fill-color: #ffffff !important; /* maintxt */
+  caret-color: #ffffff !important;
 
   -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
   box-shadow: 0 0 0px 1000px transparent inset !important;

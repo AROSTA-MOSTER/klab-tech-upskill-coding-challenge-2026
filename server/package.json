@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Task Management REST API Backend with Express and SQLite (Prisma ORM)",
+  "description": "Task Management REST API Backend with Express and PostgreSQL (Prisma ORM)",
   "type": "module",
   "main": "src/server.js",
   "scripts": {

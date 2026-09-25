@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BookCheck, ChevronDown, LogOut, UserRound, UserRoundCogIcon } from "lucide-react";
+import { ChevronDown, LogOut, UserRound, UserRoundCogIcon } from "lucide-react";
 import { Settings } from "lucide-react";
 
 const Navbar = ({ user = {}, onLogout }) => {
@@ -31,22 +31,25 @@ const Navbar = ({ user = {}, onLogout }) => {
     >
       <div className="flex item-center justify-between py-3 px-4 md:px-6 max-w-full mx-auto">
         <div
-          className="flex items-center gap-2 cursor-pointer group"
+          className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group"
           onClick={() => navigate("/")}
         >
           <div
-            className="relative w-10 h-10 flex items-center justify-center rounded-xl bg-linear-to-br 
-                from-two to-one shadow-lg group-hover:shadow-basedark/50 
-                group-hover:scale-105 transition-all duration-300"
+            className="relative w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl bg-two/80 border border-one/70 p-1 shadow-lg group-hover:shadow-one/50 
+                group-hover:scale-105 transition-all duration-300 overflow-hidden"
           >
-            <BookCheck className="w-6 h-6 text-maintxt" />
+            <img
+              src="/logo.png"
+              alt="EVERHOME DREAMS LTD"
+              className="w-full h-full object-contain rounded-lg"
+            />
           </div>
 
           <span
-            className="text-3xl sm:text-4xl font-extrabold bg-linear-to-r from-maintxt to-one
-             bg-clip-text text-transparent tracking-wide font-montserrat"
+            className="text-lg sm:text-2xl md:text-3xl font-extrabold bg-linear-to-r from-maintxt via-blue-100 to-blue-200
+             bg-clip-text text-transparent tracking-wide font-montserrat uppercase"
           >
-            TaskMaster
+            EVERHOME DREAMS LTD
           </span>
         </div>
 

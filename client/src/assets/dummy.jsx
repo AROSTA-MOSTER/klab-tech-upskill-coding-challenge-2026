@@ -76,17 +76,17 @@ export const DEFAULT_TASK = {
 export const INPUTWRAPPER =
   "flex items-center bg-two/70 text-maintxt border border-one rounded-2xl px-3 py-2.5 focus-within:ring-2 focus-within:ring-one focus-within:border-maintxt transition-all duration-200";
 export const BUTTON_CLASSES =
-  "w-full bg-gradient-to-r from-fuchsia-500 to-purple-600 text-white text-sm font-semibold py-2.5 rounded-lg hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2";
+  "w-full bg-gradient-to-r from-two to-one text-white text-sm font-semibold py-2.5 rounded-lg hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2";
 
 // PROFILE CSS
 export const INPUT_WRAPPER =
-  "flex items-center border border-purple-100 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-purple-500 focus-within:border-purple-500 transition-all duration-200";
+  "flex items-center border border-blue-400/40 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 transition-all duration-200";
 export const FULL_BUTTON =
   "w-full bg-gradient-to-r from-two to-one text-maintxt py-2.5 rounded-2xl cursor-pointer hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2";
 export const SECTION_WRAPPER =
   "bg-one/50 rounded-3xl shadow-sm border border-one p-4";
 export const BACK_BUTTON =
-  "hidden flex items-center text-gray-600 hover:text-purple-600 mb-8 transition-colors duration-200";
+  "hidden flex items-center text-gray-300 hover:text-blue-300 mb-8 transition-colors duration-200";
 export const DANGER_BTN =
   "w-full flex items-center justify-center gap-2 py-2.5 rounded-2xl \
    bg-red-500 cursor-pointer lg:bg-red-500/20 border border-red-100/80 lg:border-red-300/50 lg:text-red-300 \
@@ -168,13 +168,13 @@ export const MESSAGE_ERROR =
 // TASK ITEM
 export const getPriorityColor = (priority) => {
   const colors = {
-    low: "borde-one bg-green-100/70 text-green-700",
-    medium: "border-one bg-orange-100/70 text-purple-600",
-    high: "border-one bg-red-100/70 text-fuchsia-800",
+    low: "border-green-400 bg-green-500/20 text-green-300",
+    medium: "border-amber-400 bg-amber-500/20 text-amber-300",
+    high: "border-red-400 bg-red-500/20 text-red-300",
   };
   return (
     colors[priority?.toLowerCase()] ||
-    "border-gray-500 bg-gray-50/50 text-gray-700"
+    "border-blue-400 bg-blue-500/20 text-blue-200"
   );
 };
 
@@ -320,7 +320,7 @@ export const layoutClasses = {
         : "text-maintxt/50 hover:text-maintxt hover:bg-two"
     }`,
   addBox:
-    "hidden md:block p-5 border-2 border-dashed border-purple-200 rounded-xl hover:border-purple-400 transition-colors cursor-pointer mb-6 bg-purple-50/50 group",
+    "hidden md:block p-5 border-2 border-dashed border-blue-400 rounded-xl hover:border-blue-300 transition-colors cursor-pointer mb-6 bg-blue-900/20 group",
   emptyState: "bg-one/50 rounded-3xl shadow-sm border border-one text-center",
   emptyIconBg:
     "w-16 h-16 bg-one/30 rounded-full flex items-center justify-center mx-auto mb-4",
@@ -365,10 +365,10 @@ export const TI_CLASSES = {
   priorityBadge: "text-xs px-2 py-0.5 rounded-full shrink-0",
   description: "text-sm text-maintxt/50 line-clamp-3 leading-snug",
   subtasksContainer:
-    "mt-3 sm:mt-4 space-y-2 sm:space-y-3 bg-purple-50/30 p-2 sm:p-3 rounded-lg border border-purple-100",
-  progressBarBg: "h-1.5 bg-purple-100 rounded-full overflow-hidden",
+    "mt-3 sm:mt-4 space-y-2 sm:space-y-3 bg-blue-900/30 p-2 sm:p-3 rounded-lg border border-blue-800",
+  progressBarBg: "h-1.5 bg-blue-950 rounded-full overflow-hidden",
   progressBarFg:
-    "h-full bg-gradient-to-r from-fuchsia-500 to-purple-600 transition-all duration-300",
+    "h-full bg-gradient-to-r from-two to-one transition-all duration-300",
   rightContainer: "flex flex-col items-end gap-2 sm:gap-3",
   menuButton:
     "p-1 sm:p-1.5 hover:bg-one/30 rounded-lg text-maintxt/50 hover:text-maintxt transition-colors duration-200",

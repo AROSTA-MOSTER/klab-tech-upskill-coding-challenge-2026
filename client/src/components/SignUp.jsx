@@ -63,13 +63,20 @@ const Signup = ({ onSubmit, onSwitchMode }) => {
 
       <div className="mb-6 text-center">
         <div
-          className="w-16 h-16 bg-linear-to-br from-two to-one rounded-full mx-auto
-        flex items-center justify-center mb-3"
+          className="w-16 h-16 bg-two/80 border border-one/70 p-1 rounded-2xl mx-auto
+        flex items-center justify-center mb-3 shadow-lg overflow-hidden"
         >
-          <UserRoundPlus className="w-8 h-8 text-maintxt ml-1" />
+          <img
+            src="/logo.png"
+            alt="EVERHOME DREAMS LTD"
+            className="w-full h-full object-contain rounded-xl"
+          />
         </div>
-        <h2 className="text-3xl font-bold text-maintxt">Create Account</h2>
-        <p className="text-maintxt/50 text-sm mt-1">
+        <h2 className="text-xl font-extrabold text-blue-200 tracking-wider uppercase font-montserrat mb-1">
+          EVERHOME DREAMS LTD
+        </h2>
+        <h3 className="text-2xl font-bold text-maintxt">Create Account</h3>
+        <p className="text-maintxt/60 text-sm mt-1">
           Sign up to get started with your task management
         </p>
       </div>
